@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MindX Cinema</title>
+    <style>
+        .login-container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+form {
+    width: 300px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Đăng nhập</h2>
+        <form id="loginForm">
+            <label for="username">Tên đăng nhập:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Mật khẩu:</label>
+            <input type="password" id="password" name="password" required minlength="8">
+            <input type="checkbox" id="rememberMe"> <label for="rememberMe">Nhớ mật khẩu</label>
+            <a href="#">Quên mật khẩu?</a>
+            <button type="submit">Đăng nhập</button>
+        </form>
+    </div>
+    <script>
+        const loginForm = document.getElementById('loginForm');
+const errorElement = document.createElement('p');
+errorElement.classList.add('error');
+loginForm.appendChild(errorElement);
+
+loginForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    
+    if (username === '' || password.length < 8) {
+        errorElement.textContent = 'Vui lòng nhập đầy đủ thông tin.';
+    } else {
+        alert('Đăng nhập thành công!');
+        window.location.href = 'home.html';
+    }
+});
+    </script>
+</body>
+</html>
